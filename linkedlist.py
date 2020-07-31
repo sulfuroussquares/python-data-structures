@@ -34,14 +34,33 @@ class LinkedList:
       node = Node(data, self.head)
       self.head = node
 
-    # def insert_after_value(self, data_after, data_to_insert):
-        
-    # # Search for first occurance of data_after value in linked list
-    # while ()
-    # # Now insert data_to_insert after data_after node
+  # This method inserts an element after a particular value, and based on the first instance of that value it finds
+  def insert_after_value(self, data_after, data_to_insert):
+    # start at the beginning
+    itr = self.head 
+    while (itr.data != data_after):
+      itr = itr.next
 
-    # def remove_by_value(self, data):
-    # # Remove first node that contains data
+    # at this point, we've found the element we want to insert an element after
+    temp = itr.next # store the link to the next value
+    itr.next = Node(data_to_insert)
+    itr.next.next = temp # complete the chain
+
+    # Remove first node that contains data
+  def remove_by_value(self, data_to_remove):
+    itr = self.head
+    # edge case: the first value is the element we want to remove_by_value
+    if (itr.data == data_to_remove):
+      itr.next = self.head
+      
+        
+    while (itr.next != data_to_remove):
+        # at this point, we're just before the element we want to remove
+        itr = itr.next
+          
+    itr.next = itr.next.next # connect the chain around the value we remove
+
+
         
 
 
