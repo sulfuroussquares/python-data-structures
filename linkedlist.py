@@ -48,16 +48,19 @@ class LinkedList:
 
     # Remove first node that contains data
   def remove_by_value(self, data_to_remove):
+    # edge case: the linked list is empty
+    if (self.head is None):
+      return
+
     itr = self.head
     # edge case: the first value is the element we want to remove_by_value
     if (itr.data == data_to_remove):
-      itr.next = self.head
-      
+      self.head = itr.next
+      return
         
     while (itr.next != data_to_remove):
         # at this point, we're just before the element we want to remove
         itr = itr.next
-          
     itr.next = itr.next.next # connect the chain around the value we remove
 
 
