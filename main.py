@@ -17,3 +17,7 @@ if __name__ == '__main__':
   ll.print()
   print("removed value 3")
   
+  ll.insert_at_end(10)
+  ll.print()
+  print("inserted 10 at end of list")
+  

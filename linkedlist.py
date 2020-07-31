@@ -34,6 +34,24 @@ class LinkedList:
       node = Node(data, self.head)
       self.head = node
 
+  def insert_at_end(self, data):
+    # edge case: the linked list is empty
+    if (self.head is None):
+      self.head = Node(data)
+      return
+    
+    # iterate through linked list
+    itr = self.head
+    
+    # this while loop will escape when it reaches the last element
+    while (itr.next):
+      itr = itr.next
+
+    itr.next = Node(data)
+
+
+
+
   # This method inserts an element after a particular value, and based on the first instance of that value it finds
   def insert_after_value(self, data_after, data_to_insert):
     # start at the beginning
