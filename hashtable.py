@@ -1,6 +1,6 @@
 # Hash Tables work by storing key:value pairs of associated data. In python this is known as a 'dictionary'
 
-new dict = {
+new_dict = {
   "A" : 1,
   "B" : 2,
   "C" : 3
@@ -18,12 +18,31 @@ def get_hash(key):
     h += ord(char)
   return h % 100
 
+# Here we demonstrate the actual data structure and implement the method defined above
+
 class HashTable:
   def __init__(self):
     self.MAX = 100
-    self.arr= [None for i in range self.MAX]
+    self.arr= [None for i in range(self.MAX)]
     # Initializing an array of size 100, and storing no values in each of those array spaces
     # (The syntax here is a 'list comprehension' in Python)
+
+  def get_hash(self, key):
+    h = 0
+    for char in key:
+      h += ord(char)
+    return h % 100
+
+  def add(self, key, value):
+    hashed = self.get_hash(key)
+    # Assign the object's array at position [key] equal to value
+    self.arr[key] = value
+
+  def get(self, key):
+    # We need the hash from the given key
+    hashed = self.get_hash(key)
+    return self.arr[hashed]
+    
 
 
 
