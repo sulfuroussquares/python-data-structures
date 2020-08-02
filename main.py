@@ -6,8 +6,8 @@ from hashtable import HashTable
 
 if __name__ == '__main__':
   t = HashTable()
-  print(t.get_hash('t'))
-  print(t.get_hash('e'))
-  print(t.get_hash('n'))
-  print(t.get_hash('ten'))
-  
+  t["value 1"] = 1
+  t["value 2"] = 2
+  print(t.arr)
+  del t["value 1"]
+  print(t.arr)

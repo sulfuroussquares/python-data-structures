@@ -1,10 +1,13 @@
-# Hash Tables work by storing key:value pairs of associated data. In python this is known as a 'dictionary'
+# Hash Tables work by storing key:value pairs of associated data. In python this is known as a 'dictionary'.
+
 
 new_dict = {
   "A" : 1,
   "B" : 2,
   "C" : 3
 }
+
+# Although this data structure is built-in in Python, I will code an implementation of it to further familiarize myself with the concepts
 
 # The key has a 'hash function' applied to it, which results in a memory location somewhere that contains the value for that key
 
@@ -33,16 +36,20 @@ class HashTable:
       h += ord(char)
     return h % 100
 
-  def add(self, key, value):
+  def __setitem__(self, key, value):
     hashed = self.get_hash(key)
     # Assign the object's array at position [key] equal to value
-    self.arr[key] = value
+    self.arr[hashed] = value
 
-  def get(self, key):
+  def __getitem__(self, key):
     # We need the hash from the given key
     hashed = self.get_hash(key)
     return self.arr[hashed]
-    
+
+  # deleting items
+  def __delitem__(self, key):
+    hashed = self.get_hash(key)
+    self.arr[hashed] = None
 
 
 
