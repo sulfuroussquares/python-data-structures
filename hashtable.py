@@ -24,9 +24,17 @@ def get_hash(key):
 # Here we demonstrate the actual data structure and implement the method defined above
 
 class HashTable:
+  # Basic, Non-Collision-Handling version
+  # def __init__(self):
+  #   self.MAX = 100
+  #   self.arr= [None for i in range(self.MAX)]
+  #   # Initializing an array of size 100, and storing no values in each of those array spaces
+  #   # (The syntax here is a 'list comprehension' in Python)
+
+# Collision-handling version
   def __init__(self):
-    self.MAX = 100
-    self.arr= [None for i in range(self.MAX)]
+    self.MAX = 10
+    self.arr= [[] for i in range(self.MAX)]
     # Initializing an array of size 100, and storing no values in each of those array spaces
     # (The syntax here is a 'list comprehension' in Python)
 
@@ -36,15 +44,48 @@ class HashTable:
       h += ord(char)
     return h % 100
 
+# Non-Linked List version
+  # def __setitem__(self, key, value):
+  #   hashed = self.get_hash(key)
+  #   # Assign the object's array at position [key] equal to value
+  #   self.arr[hashed] = value
+
+# Linked List version
   def __setitem__(self, key, value):
     hashed = self.get_hash(key)
+    found = False
     # Assign the object's array at position [key] equal to value
-    self.arr[hashed] = value
 
-  def __getitem__(self, key):
+    # If they key we want to pass in already exists, update it
+    # * enumerate() allows us to add a counter while iterating in python
+    for index, element in enumerate(self.arr[hashed]):
+      if (len(element) == 2 and element[0]== key):
+        self.arr[hashed][index] = (key, value)
+        found = True
+      if not found:
+        self.arr[hashed].append((key, value))
+
+    # Assuming the key being used doesn't already exist in our hash map
+    # * append() only takes one argument so we're passing in a tuple
+    self.arr[hashed].append((key, value))
+
+
+
+
+  # Non-Chaining version
+  # def __getitem__(self, key):
+  #   # We need the hash from the given key
+  #   hashed = self.get_hash(key)
+  #   return self.arr[hashed]
+
+
+  # Chaining version
+    def __getitem__(self, key):
     # We need the hash from the given key
-    hashed = self.get_hash(key)
-    return self.arr[hashed]
+      hashed = self.get_hash(key)
+      for element in self.arr[hashed]:
+        if (element[0] == key):
+          return element[1]
 
   # deleting items
   def __delitem__(self, key):
