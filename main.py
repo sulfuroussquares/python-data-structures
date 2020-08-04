@@ -20,3 +20,5 @@ if __name__ == '__main__':
   print('printing array contents now')
   # print(t.arr)
   t['Value 1']
+
+  print(t['Value 1'])
