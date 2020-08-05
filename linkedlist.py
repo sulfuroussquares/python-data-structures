@@ -82,6 +82,35 @@ class LinkedList:
     itr.next = itr.next.next # connect the chain around the value we remove
 
 
+# -----------------------------------------------------#
+# COMMON CHALLENGES
+#------------------------------------------------------#
+
+# Create a deleteNode() function that will take in as inputs, a head node and a position. The function will then delete the node at a given position
+
+# SinglyLinkedListNode:
+#     int data
+#     SinglyLinkedListNode next
+#
+#
+
+def deleteNode(head, position):
+    # while there is a next item to move to, move through array
+    itr = head
+    idx = 0
+
+
+    while (itr):
+        if (position == 0):
+            return head.next
+
+        if (idx == position-1):
+            itr.next = itr.next.next
+            return head
+        itr = itr.next
+        idx += 1
+    
+
         
 
 

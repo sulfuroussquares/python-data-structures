@@ -48,7 +48,7 @@ class HashTable:
     self.arr[hashed] = value
 
 
-    If they key we want to pass in already exists, update it
+    # If they key we want to pass in already exists, update it
     # * enumerate() allows us to add a counter while iterating in python
     for index, element in enumerate(self.arr[hashed]):
       if (len(element) == 2 and element[0]== key):
