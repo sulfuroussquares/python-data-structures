@@ -109,6 +109,29 @@ def deleteNode(head, position):
             return head
         itr = itr.next
         idx += 1
+
+# Create a insertNodeAtPosition() function that will take in as inputs, a head node, data, and a position. The function will then insert the data at the specified position.
+
+def insertNodeAtPosition(head, data, position):
+
+    # edge case: the list is empty
+    if (head.data is None):
+        head.data = data
+        return head
+
+    
+    
+    # traverse the linked list
+    itr = head
+    idx = 0
+    while (itr):
+        itr = itr.next
+        idx += 1
+        if (idx == position - 1):
+            temp = itr.next
+            itr.next = SinglyLinkedListNode(data)
+            itr.next.next = temp
+            return head
     
 
         
