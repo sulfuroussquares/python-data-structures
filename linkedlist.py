@@ -133,6 +133,15 @@ def insertNodeAtPosition(head, data, position):
             itr.next.next = temp
             return head
     
+  # This method will take in the head of a linked list, then print the reverse of that linked list
+  def reversePrint(head):
+
+    prev = None
+    itr = head
+    while (itr):
+        temp = itr
+        itr = itr.next
+        prev = temp
 
         
 
