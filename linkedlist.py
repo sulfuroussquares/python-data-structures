@@ -155,6 +155,28 @@ def insertNodeAtPosition(head, data, position):
         print(head.data)
         head = head.next
         
+  # This method will take in the head nodes of two linked lists and compare the two linked lists.
+  # If they are equal in content (all nodes are the same) and in length, it will return 1, otherwise it will return 0
+
+  def compare_lists(llist1, llist2):
+    # assuming the linked lists are equal until proven otherwise
+    flag = 1
+
+    # checking to see that the lists have equal values within them
+    while (llist1 and llist2 ):
+        if (llist1.data == llist2.data):
+            llist1 = llist1.next
+            llist2 = llist2.next
+            continue
+        # if we are here, it means there are nodes that are not equal
+        flag = 0
+        break
+    # checking to see that the lists are not equal length
+    if ((llist1 is None and llist2) or (llist1 and llist2 is None)):
+        flag = 0
+
+    return flag
+
 
 
 
