@@ -177,6 +177,22 @@ def insertNodeAtPosition(head, data, position):
 
     return flag
 
+    # this function will, given a head node and a position some distance from the tail, return the value of the node at that position
+    def getNode(head, positionFromTail):
+    # initialize a data structure to hold values while we pass through the linked list
+    # in this case, I'll use a list
+    temp = []
+
+    # pass through the linked list, collecting values
+    itr = head
+    while (itr):
+        temp.append(itr.data)
+        itr = itr.next
+
+    # retrieve the item at positionFromTail
+    retrieved_value = temp[-1*(positionFromTail + 1)]
+    return retrieved_value
+
 
 
 
