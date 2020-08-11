@@ -133,8 +133,27 @@ def insertNodeAtPosition(head, data, position):
             itr.next.next = temp
             return head
     
+
+
+
+    # This method will change the next pointers of the nodes that their order is reversed and return the head of the reversed linked list.
+
+    def reverse(head):
+
+    prev = None
+    nxt = None
+    curr = head
+
+    while (curr):
+        nxt = curr.next # copy what the next element is
+        curr.next = prev # set the next element to be the previous element
+        prev = curr # set the previous element to be equal to the current element
+        curr = nxt # set the current element to be the next element
+    head = prev
+    return head
+
+
   # This method will take in the head of a linked list, then print the reverse of that linked list (non-recursively)
-  def reversePrint(head):
     # recall that a linked list is just a collection of nodes with pointers connecting them
 
     # so if we were to have the pointers reversing direction (tail becomes the head), we have reversed the linked list
