@@ -1,6 +1,5 @@
 # # Hash Tables work by storing key:value pairs of associated data. In python this is known as a 'dictionary'.
 
-
 new_dict = {
   "A" : 1,
   "B" : 2,
